@@ -9,6 +9,7 @@ import { useState } from "react";
 function App() {
   // let count = 0 ;
   const[count, setCount]=useState(0);
+  const test="testing";
   
   function handleAdd(){
     setCount(count+1);
@@ -27,7 +28,7 @@ function App() {
   return (
     <>
     <Header/>
-    <TaskList title="value"/>
+    <TaskList title="value" info={test}/>
     <div>
 
       <h3>{count}</h3>

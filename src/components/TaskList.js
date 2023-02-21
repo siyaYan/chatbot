@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from "react";
+import { TaskCard } from "./TaskCard";
+import { BoxCard } from "./BoxCard";
 
 export const TaskList = (props) => {
     const [tasks, setTasks] = useState([
@@ -16,17 +18,22 @@ export const TaskList = (props) => {
       }
     return (
         <>
-            <h1>Task List{props.title}</h1>
+            <h1>Task List-{props.info}</h1>
             <ul>
                 <button onClick={() => setShow(!show)}>trigger</button>
                 {show && tasks.map((task) => (
                     // we need a unique key value
-                    <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
-                        <span>{task.id} - {task.name}</span>
-                        <button onClick={() => handleDelete(task.id)}>Delete</button>
-                    </li>
+                    <TaskCard  key={task.id} others={props.info} task={task} handleDelete={handleDelete}/>
                 ))}
             </ul>
+            <BoxCard result="success" others={props.info}>
+                <p>Lorem, ipsum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae cum, eos itaque consequatur voluptates sit atque ipsa? Voluptatibus, magnam maxime?</p>
+            </BoxCard>
+            <BoxCard result="alert">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, sed!</p>
+            </BoxCard>
         </>
     )
 }

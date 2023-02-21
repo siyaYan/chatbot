@@ -4,3 +4,19 @@
 .incomplete{
     color: blueviolet;
 }
+.box_success{
+    color: aqua;
+    font-size: larger;
+}
+.box_warning{
+    color: red;
+    font-size: larger;
+}
+.box_alert{
+    color: yellow;
+    font-size: larger;
+}
+.hidden{
+    /* visibility: hidden; */
+    display: none;
+}
